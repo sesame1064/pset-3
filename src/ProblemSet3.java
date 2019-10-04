@@ -30,25 +30,36 @@ public class ProblemSet3 {
         
         ps.sign();          // executes Exercise 1
         ps.parity();        // executes Exercise 2
-        ps.ordered();       // executes Exercise 3
-        ps.gpa();           // executes Exercise 4
-        ps.grade();         // executes Exercise 5
-        ps.cards();         // executes Exercise 6
-        ps.leapYear();      // executes Exercise 7
-        ps.state();         // executes Exercise 8
-        ps.months();        // executes Exercise 9
-        ps.salary();        // executes Exercise 10
+        // ps.ordered();       // executes Exercise 3
+        // ps.gpa();           // executes Exercise 4
+        // ps.grade();         // executes Exercise 5
+        // ps.cards();         // executes Exercise 6
+        // ps.leapYear();      // executes Exercise 7
+        // ps.state();         // executes Exercise 8
+        // ps.months();        // executes Exercise 9
+        // ps.salary();        // executes Exercise 10
         
         in.close();
     }
     
     /*
-     * Exercise 1.
+     * Exercise 1.  
      * 
      * Prompt the user to enter an integer. Is it positive, negative, or zero?
      */
     
     public void sign() {
+
+        System.out.print("\nEnter an integer:  ");
+        int number = in.nextInt();
+
+        if(number < 0){
+            System.out.println("\nNegative.");
+        }else if(number > 0){
+            System.out.println("\nPositive.");
+        }else{
+            System.out.println("\nZero.");
+        }
 
     }
     
@@ -60,6 +71,15 @@ public class ProblemSet3 {
     
     public void parity() {
 
+        System.out.print("\nEnter an integer: ");
+        int number = in.nextInt();
+
+        if(number % 2 == 0){
+            System.out.println("\nEven.");
+        }else{
+            System.out.println("\nOdd.");
+        }
+
     }
     
     /*
@@ -69,7 +89,16 @@ public class ProblemSet3 {
      */
     
     public void ordered() {
+        System.out.println("Enter three integers");
 
+        System.out.println("Enter integer");
+        int first = in.nextInt();
+        System.out.println("Enter integer");
+        int second = in.nextInt();
+        System.out.println("Enter integer");
+        int third = in.nextInt();
+
+        if((first < second)&& ){}
     }
     
     /*

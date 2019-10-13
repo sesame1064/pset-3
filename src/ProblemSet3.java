@@ -28,11 +28,11 @@ public class ProblemSet3 {
         
         // comment out or uncomment as needed
         
-        ps.sign();          // executes Exercise 1
-        ps.parity();        // executes Exercise 2
-        // ps.ordered();       // executes Exercise 3
-        // ps.gpa();           // executes Exercise 4
-        // ps.grade();         // executes Exercise 5
+       // ps.sign();          // executes Exercise 1
+        //ps.parity();        // executes Exercise 2
+       // ps.ordered();       // executes Exercise 3
+        //ps.gpa();           // executes Exercise 4
+         ps.grade();         // executes Exercise 5
         // ps.cards();         // executes Exercise 6
         // ps.leapYear();      // executes Exercise 7
         // ps.state();         // executes Exercise 8
@@ -91,24 +91,74 @@ public class ProblemSet3 {
     public void ordered() {
         System.out.println("Enter three integers");
 
-        System.out.println("Enter integer");
+        System.out.print("\nEnter integer: ");
         int first = in.nextInt();
-        System.out.println("Enter integer");
+        System.out.print("Enter integer: ");
         int second = in.nextInt();
-        System.out.println("Enter integer");
+        System.out.print("Enter integer: ");
         int third = in.nextInt();
 
-        if((first < second)&& ){}
+        if((first < second) && (second < third)){
+            System.out.print("\nStrictly increasing.");
+        }else if((first > second) && (second > third) ){
+            System.out.print("\nStrictly decreasing.");
+        }else if((first <= second) && (second <= third)){
+            System.out.print("\nIncreasing.");
+        }else if((first >= second) && (second >= first)){
+            System.out.print("\nDecreasing.");
+        }else{
+            System.out.print("\nUnordered");
+        }
     }
     
     /*
      * Exercise 4.
      * 
-     * Prompt the user to enter a letter grade. What's the corresponding GPA?
+     * Prompt t he user to enter a letter grade. What's the corresponding GPA?
      */
     
     public void gpa() {
+        System.out.print("\nEnter a letter grade: ");
+        String input = in.next();
+        
+        char letter = input.charAt(0);
 
+
+        final double A = 4.00;
+        final double B = 3.00;
+        final double C = 2.00;
+        final double D = 1.00;
+        final double F = 0;
+        final double EXTRA = 0.33;
+        
+        double grade = 0;
+
+        switch (letter){
+            case 'A':
+                grade = A;
+                break;
+            case 'B':
+                grade = B;
+                break;
+            case 'C':
+                grade = C;
+                break;
+            case 'D':
+                grade = D;
+                break;
+            case 'F':
+                grade = F;
+                break;
+            default:
+                System.out.print("\nInvalid input");                     
+        }
+        
+
+        grade += (input.contains("+") && !input.contains("A+") && !input.contains("F+"))? EXTRA : 0;
+        grade -= (input.contains("-") && !input.contains("F-")) ? EXTRA : 0;
+            
+        System.out.print("\nYour GPA is " + grade + ".\n");
+        
     }
     
     /*
@@ -118,7 +168,33 @@ public class ProblemSet3 {
      */
     
     public void grade() {
+        System.out.print("\nEnter a grade: ");
+        int input = in.nextInt();
+        String error;
 
+        final int GRADE_A_PLUS = 100;
+        final int GRADE_A = 90;
+        final int GRADE_B = 80;
+        final int GRADE_C = 70;
+        final int GRADE_D = 60;
+        final int GRADE_F = 0;
+
+        if(input > GRADE_A && input <= GRADE_A_PLUS){
+            System.out.println("\nYou received an A.");
+        }else if(input > GRADE_B && input < GRADE_A){
+            System.out.println("\nYou received a B.");
+        }else if(input > GRADE_C && input < GRADE_B){
+            System.out.println("\nYou received a C.");
+        }else if(input > GRADE_D && input < GRADE_C ){
+            System.out.println("\nYou received a D.");
+        }else if(input > GRADE_F && input <= GRADE_D){
+            System.out.println("\nYou received an F.");
+        }else{
+            error = (input > 100) 
+            ? "\nGrades above 100 are invalid."
+            : "\nGrades below 0 are invalid.";
+            System.out.print(error);
+        }       
     }
     
     /*

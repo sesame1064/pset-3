@@ -32,8 +32,8 @@ public class ProblemSet3 {
         //ps.parity();        // executes Exercise 2
        // ps.ordered();       // executes Exercise 3
         //ps.gpa();           // executes Exercise 4
-         ps.grade();         // executes Exercise 5
-        // ps.cards();         // executes Exercise 6
+        //ps.grade();         // executes Exercise 5
+         ps.cards();         // executes Exercise 6
         // ps.leapYear();      // executes Exercise 7
         // ps.state();         // executes Exercise 8
         // ps.months();        // executes Exercise 9
@@ -179,20 +179,21 @@ public class ProblemSet3 {
         final int GRADE_D = 60;
         final int GRADE_F = 0;
 
-        if(input > GRADE_A && input <= GRADE_A_PLUS){
+        if(input >= GRADE_A && input <= GRADE_A_PLUS){
             System.out.println("\nYou received an A.");
-        }else if(input > GRADE_B && input < GRADE_A){
+        }else if(input >= GRADE_B && input < GRADE_A){
             System.out.println("\nYou received a B.");
-        }else if(input > GRADE_C && input < GRADE_B){
+        }else if(input >= GRADE_C && input < GRADE_B){
             System.out.println("\nYou received a C.");
-        }else if(input > GRADE_D && input < GRADE_C ){
+        }else if(input >= GRADE_D && input < GRADE_C ){
             System.out.println("\nYou received a D.");
-        }else if(input > GRADE_F && input <= GRADE_D){
+        }else if(input >= GRADE_F && input < GRADE_D){
             System.out.println("\nYou received an F.");
         }else{
             error = (input > 100) 
             ? "\nGrades above 100 are invalid."
             : "\nGrades below 0 are invalid.";
+            
             System.out.print(error);
         }       
     }
@@ -204,6 +205,80 @@ public class ProblemSet3 {
      */
     
     public void cards() {
+        System.out.print("\nEnter a card: ");
+
+        String input = in.next();
+        String cardRank = null;
+        String cardSuit = null;
+
+        char rank = input.charAt(0);
+        char suit = input.charAt(1);
+
+        switch(rank){
+            case 'A': 
+                cardRank = "Ace";
+                break;
+            case '2':
+                cardRank = "Two";
+                break;
+            case '3':
+                cardRank = "Three";
+                break;
+            case '4': 
+                cardRank = "Four";
+                break;
+            case '5':
+                cardRank = "Five";
+                break;
+            case '6':
+                cardRank = "Six";
+                break;
+            case '7':
+                cardRank = "Seven";
+                break;
+            case '8': 
+                cardRank = "Eight";
+                break;
+            case '9':
+                cardRank = "Nine";
+                break;
+            case 'T':
+                cardRank = "Ten";
+                break;
+            case 'J':
+                cardRank = "Jack";
+                break;
+            case 'Q':
+                cardRank = "Queen";
+                break;
+            case 'K':
+                cardRank = "King";
+                break;
+            default: 
+                System.out.println("\nThat's not a valid rank");            
+        }
+        switch(suit){
+            case 'C':
+                cardSuit = "Clubs";
+                break;
+            case 'D':
+                cardSuit = "Diamonds";
+                break;
+            case 'H':
+                cardSuit = "Hearts";
+                break;
+            case 'S':
+                cardSuit = "Spades";
+                break;
+            default:
+                System.out.println("\nThat's not a valid suit.");
+                break;
+        }
+
+        if(cardRank != null && cardSuit != null){
+            System.out.println("\n" + cardRank + " of " + cardSuit + ".");          
+        }
+     
 
     }
     
@@ -214,6 +289,11 @@ public class ProblemSet3 {
      */
     
     public void leapYear() {
+        System.out.println("Enter a year: ");
+
+        int year = in.nextInt();
+
+        
 
     }
     

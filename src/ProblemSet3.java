@@ -28,16 +28,16 @@ public class ProblemSet3 {
         
         // comment out or uncomment as needed
         
-       // ps.sign();          // executes Exercise 1
-        //ps.parity();        // executes Exercise 2
-       // ps.ordered();       // executes Exercise 3
-        //ps.gpa();           // executes Exercise 4
-        //ps.grade();         // executes Exercise 5
-         ps.cards();         // executes Exercise 6
-        // ps.leapYear();      // executes Exercise 7
-        // ps.state();         // executes Exercise 8
-        // ps.months();        // executes Exercise 9
-        // ps.salary();        // executes Exercise 10
+        ps.sign();          // executes Exercise 1
+        ps.parity();        // executes Exercise 2
+        ps.ordered();       // executes Exercise 3
+        ps.gpa();           // executes Exercise 4
+        ps.grade();         // executes Exercise 5
+        ps.cards();         // executes Exercise 6
+        ps.leapYear();      // executes Exercise 7
+        ps.state();         // executes Exercise 8
+        ps.months();        // executes Exercise 9
+        ps.salary();        // executes Exercise 10
         
         in.close();
     }
@@ -89,7 +89,7 @@ public class ProblemSet3 {
      */
     
     public void ordered() {
-        System.out.println("Enter three integers");
+        System.out.println("\nEnter three integers");
 
         System.out.print("\nEnter integer: ");
         int first = in.nextInt();
@@ -99,15 +99,15 @@ public class ProblemSet3 {
         int third = in.nextInt();
 
         if((first < second) && (second < third)){
-            System.out.print("\nStrictly increasing.");
+            System.out.print("\nStrictly increasing.\n");
         }else if((first > second) && (second > third) ){
-            System.out.print("\nStrictly decreasing.");
+            System.out.print("\nStrictly decreasing.\n");
         }else if((first <= second) && (second <= third)){
-            System.out.print("\nIncreasing.");
+            System.out.print("\nIncreasing.\n");
         }else if((first >= second) && (second >= first)){
-            System.out.print("\nDecreasing.");
+            System.out.print("\nDecreasing.\n");
         }else{
-            System.out.print("\nUnordered");
+            System.out.print("\nUnordered\n");
         }
     }
     
@@ -120,6 +120,7 @@ public class ProblemSet3 {
     public void gpa() {
         System.out.print("\nEnter a letter grade: ");
         String input = in.next();
+        input = input.toUpperCase();
         
         char letter = input.charAt(0);
 
@@ -208,6 +209,7 @@ public class ProblemSet3 {
         System.out.print("\nEnter a card: ");
 
         String input = in.next();
+        input = input.toUpperCase();
         String cardRank = null;
         String cardSuit = null;
 
@@ -289,9 +291,15 @@ public class ProblemSet3 {
      */
     
     public void leapYear() {
-        System.out.println("Enter a year: ");
+        System.out.print("\nEnter a year: ");
 
         int year = in.nextInt();
+
+        if(year >= 0 && (year % 4 == 0 || year % 400 == 0) && (year % 100 != 0)){
+            System.out.println("\n" + year + " is a leap year.");
+        }else{
+            System.out.println("\n" + year + " is a not a leap year");
+        }
 
         
 
@@ -305,7 +313,41 @@ public class ProblemSet3 {
      */
     
     public void state() {
+        final double FREEZE_PT_CEL = 0;
+        final double FREEZE_PT_FAH = 32;
+        final double BOIL_PT_CEL = 100;
+        final double BOIL_PT_FAH = 212;
 
+        System.out.print("\nEnter a temperature: ");
+        double inputTemp = in.nextDouble();
+        System.out.print("Enter a scale: ");
+        String scale = in.next();
+        scale = scale.toUpperCase();
+
+        switch(scale){
+            case "C":
+                if(inputTemp >= BOIL_PT_CEL){
+                    System.out.println("\nGas.");
+                }else if (inputTemp > FREEZE_PT_CEL){
+                    System.out.println("\nLiquid.");
+                }else{
+                    System.out.println("\nSoild.");
+                }
+                break;
+            case "F":
+                if(inputTemp >= BOIL_PT_FAH){
+                    System.out.print("\nGas.");
+                }else if(inputTemp > FREEZE_PT_FAH){
+                    System.out.print("\nLiquid.");
+                }else{
+                    System.out.print("\nSolid.");
+                }
+                break;
+            default:
+                System.out.println("\nThat's not a valid scale.");
+        }
+
+    
     }
     
     /*
@@ -315,7 +357,71 @@ public class ProblemSet3 {
      */
     
     public void months() {        
+        System.out.print("\n\nEnter a month: ");
+        String month = (in.next()).toUpperCase();
 
+        switch (month) {
+			case "JANUARY":
+			case "JANU":
+			case "JAN":
+				System.out.println("\n31 days.");
+				break;
+			case "FEBRUARY":
+			case "FEBR":
+			case "FEB":
+				System.out.println("\n28 or 29 days.");
+            	break;
+			case "MARCH":
+			case "MARC":
+			case "MAR":
+				System.out.println("\n31 days.");
+				break;
+			case "APRIL":
+			case "APRI":
+			case "APR":
+				System.out.println("\n30 days.");
+				break;
+			case "MAY":
+				System.out.println("\n31 days.");
+				break;
+			case "JUNE":
+			case "JUN":
+				System.out.println("\n30 days.");
+	            break;
+			case "JULY":
+			case "JUL":
+	            System.out.println("\n31 days.");
+	            break;
+			case "AUGUST":
+			case "AUGU":
+			case "AUG":
+	            System.out.println("\n31 days.");
+	            break;
+			case "SEPTEMBER":
+			case "SEPT":
+			case "SEP":
+	            System.out.println("\n30 days.");
+	            break;
+			case "OCTOBER":
+			case "OCTO":
+			case "OCT":
+	            System.out.println("\n31 days.");
+	            break;
+			case "NOVEMBER":
+			case "NOVE":
+			case "NOV":
+	            System.out.println("\n30 days.");
+	            break;
+			case "DECEMBER":
+			case "DECE":
+			case "DEC":
+	            System.out.println("\n31 days.");
+	            break;
+			default:
+	            System.out.println("\nThat's not a valid month.");
+	            break;
+		}
+        
     }
     
     /*
@@ -325,6 +431,10 @@ public class ProblemSet3 {
      */
     
     public void salary() {
+       
+        }
+
+
 
     }
 }

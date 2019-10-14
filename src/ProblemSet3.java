@@ -431,7 +431,30 @@ public class ProblemSet3 {
      */
     
     public void salary() {
-       
+        final double OVERTIME = 40;
+        final double OVERTIME_PAY_MULT = 1.5;
+        double pay;
+        double otHours;
+
+        System.out.print("\nWage: ");
+        double wage = in.nextDouble();
+        System.out.print("Hours: ");
+        double hours = in.nextDouble();
+
+        if(wage < 0.00){
+            System.out.print("Your wage must be greater than or equal to $0.00/hour");
+        }
+        if(hours < 0){
+            System.out.print("Your hours must be greater than or equal to 0.0");
+        }
+
+        if(hours > OVERTIME){
+            otHours = hours - OVERTIME;
+            pay = (40 * wage) + (otHours * OVERTIME_PAY_MULT * wage);
+            System.out.printf("\nYou'll make $%,.2f this week.\n\n", pay);
+        }else {
+            pay = hours * wage;
+            System.out.printf("\nYou'll make $%,.2f this week.\n\n", pay); 
         }
 
 
